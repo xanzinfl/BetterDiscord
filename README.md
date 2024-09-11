@@ -1,4 +1,4 @@
-# [BetterDiscord](https://github.com/BetterDiscord/BetterDiscord) Plugins
+# [BetterDiscord](https://github.com/BetterDiscord/BetterDiscord)
 
 # Plugins
 [NoWebcamInvert](https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert/NoWebcamInvert.plugin.js)
