@@ -4,8 +4,9 @@
  * @authorId 888591350986047508
  * @version 1.0.5
  * @description Allows you to toggle the local invert on your camera feed
+ * @invite svSmDEvZQw
  * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert
- * @updateUrl https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert/NoWebcamInvert.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/xanzinfl/BetterDiscord/main/Plugins/NoWebcamInvert/NoWebcamInvert.plugin.js
  */
 
 module.exports = class NoWebcamInvert {
