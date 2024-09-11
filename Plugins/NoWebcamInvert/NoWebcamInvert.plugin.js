@@ -3,7 +3,7 @@
  * @author xanzinfl
  * @authorId 888591350986047508
  * @version 1.0.5
- * @description Removes the local invert on your camera feed
+ * @description Allows you to toggle the local invert on your camera feed
  * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert
  * @updateUrl https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert/NoWebcamInvert.plugin.js
  */
@@ -18,11 +18,12 @@ module.exports = class NoWebcamInvert {
     console.log('Plugin started');
     this.addInvertCheckbox();
     this.applyInversionToMyCamera();
+    this.monitorCamera();
   }
 
   stop() {
     this.resetCameraInversion();
-    this.removeInvertCheckbox();  // Remove the checkbox when plugin stops
+    this.removeInvertCheckbox();
     if (this.observer) {
       this.observer.disconnect();
     }
@@ -32,14 +33,14 @@ module.exports = class NoWebcamInvert {
     this.isInverted = !this.isInverted;
     console.log('Toggling inversion:', this.isInverted);
 
-    // Apply or reset inversion to your camera only once when the state changes
+
     this.applyInversionToMyCamera();
   }
 
   applyInversionToMyCamera() {
     const myCamera = document.querySelector('.mirror_a5989d video');
     if (myCamera) {
-      // Apply the transform only when the checkbox is checked, otherwise reset
+
       myCamera.style.transform = this.isInverted ? 'scaleX(-1)' : '';
     } else {
       console.log('No camera with mirror class found.');
@@ -51,11 +52,11 @@ module.exports = class NoWebcamInvert {
       const cameraSelectionContainer = document.querySelector('#video-device-context');
 
       if (cameraSelectionContainer) {
-        // Check if the checkbox already exists
+
         if (!document.getElementById('invertCheckbox')) {
           const invertCheckboxContainer = document.createElement('div');
           invertCheckboxContainer.style.padding = '5px';
-          invertCheckboxContainer.id = 'invertCheckboxContainer'; // Add an ID to the container for easy removal
+          invertCheckboxContainer.id = 'invertCheckboxContainer';
 
           const invertCheckbox = document.createElement('input');
           invertCheckbox.type = 'checkbox';
@@ -70,31 +71,40 @@ module.exports = class NoWebcamInvert {
           invertCheckboxContainer.appendChild(invertCheckbox);
           invertCheckboxContainer.appendChild(label);
 
-          // Append the checkbox to the camera selection tab
+
           cameraSelectionContainer.appendChild(invertCheckboxContainer);
         }
       }
     };
 
-    // Initial attempt to add checkbox
+
     addCheckbox();
 
-    // Use MutationObserver to add checkbox if tab loads later
+
     this.observer = new MutationObserver(() => addCheckbox());
     this.observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  monitorCamera() {
+    setInterval(() => {
+
+      if (this.isInverted) {
+        this.applyInversionToMyCamera();
+      }
+    }, 500); // Reapply every 0.5 seconds to ensure the inversion stays
   }
 
   removeInvertCheckbox() {
     const checkboxContainer = document.getElementById('invertCheckboxContainer');
     if (checkboxContainer) {
-      checkboxContainer.remove(); // Remove the checkbox container when stopping the plugin
+      checkboxContainer.remove();
     }
   }
 
   resetCameraInversion() {
     const myCamera = document.querySelector('.mirror_a5989d video');
     if (myCamera) {
-      myCamera.style.transform = '';  // Reset the camera inversion completely when stopping the plugin
+      myCamera.style.transform = '';
     }
   }
 };

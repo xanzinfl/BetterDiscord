@@ -1,2 +1,2 @@
 # NoWebcamInvert
-Removes the local invert applied to your video feed
+Adds a checkbox that allows you to disable the local invert that discord adds to your camera
