@@ -4,6 +4,8 @@
  * @authorId 888591350986047508
  * @version 1.0.2
  * @description Removes the local invert on your camera feed
+ * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert
+ * @updateUrl https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert/NoWebcamInvert.plugin.js
  */
 
 let isInverted = false;  // Variable to track the inversion state
