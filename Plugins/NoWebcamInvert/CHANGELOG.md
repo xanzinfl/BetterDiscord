@@ -1,6 +1,7 @@
 # CHANGELOG
 
-### 1.0.8
+### 1.0.6
+#### Changes
 - Added another checkbox to the camera preview
 - Reformatted the checkbox on the video device context menu
 #### Known Issues
