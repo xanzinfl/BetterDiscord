@@ -1,5 +1,11 @@
 # CHANGELOG
 
+### 1.0.8
+- Added another checkbox to the camera preview
+- Reformatted the checkbox on the video device context menu
+#### Known Issues
+- The video preview is not affected by the invert
+
 ### 1.0.5
 - Reversed the way the invert toggle works
 
