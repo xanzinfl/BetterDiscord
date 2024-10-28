@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 1.0.7
+- Removed the checkbox from the camera preview
+The second checkbox was having issue where it would show in other places (eg. Share screen, Invite a friend, Security Actions) it will be readded once i can fix it.
+
 ### 1.0.6
 #### Changes
 - Added another checkbox to the camera preview

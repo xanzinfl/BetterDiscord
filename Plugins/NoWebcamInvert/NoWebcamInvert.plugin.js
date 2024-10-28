@@ -2,7 +2,7 @@
  * @name NoWebcamInvert
  * @author xanzinfl
  * @authorId 888591350986047508
- * @version 1.0.6
+ * @version 1.0.7
  * @description Allows you to toggle the local invert on your camera feed
  * @invite svSmDEvZQw
  * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert
@@ -18,7 +18,6 @@ module.exports = class NoWebcamInvert {
   start() {
     console.log('Plugin started');
     this.addInvertCheckbox();
-    this.addInvertCheckbox2();
     this.applyInversionToMyCamera();
     this.monitorCamera();
   }
@@ -87,47 +86,6 @@ module.exports = class NoWebcamInvert {
     this.observer = new MutationObserver(() => addCheckbox());
     this.observer.observe(document.body, { childList: true, subtree: true });
   }
-
-  addInvertCheckbox2() {
-    const addCheckbox = () => {
-      const cameraSelectionContainer = document.querySelector('.checkboxWrapper_f6cde8');
-
-      if (cameraSelectionContainer) {
-
-        if (!document.getElementById('invertCheckbox2')) {
-          const invertCheckbox2Container = document.createElement('div');
-          invertCheckbox2Container.style.padding = '5px';
-          invertCheckbox2Container.id = 'invertCheckboxContainer';
-
-          const invertCheckbox2 = document.createElement('input');
-          invertCheckbox2.type = 'checkbox';
-          invertCheckbox2.id = 'invertCheckbox2';
-          invertCheckbox2.checked = this.isInverted;
-          invertCheckbox2.onchange = () => this.toggleCameraInversion();
-
-          const label = document.createElement('label');
-          label.htmlFor = 'invertCheckbox2';
-          label.innerText = 'Invert';
-
-          invertCheckbox2Container.appendChild(invertCheckbox2);
-          invertCheckbox2Container.appendChild(label);
-
-
-          cameraSelectionContainer.appendChild(invertCheckbox2Container);
-        }
-      }
-    };
-
-
-    addCheckbox();
-
-
-    this.observer = new MutationObserver(() => addCheckbox());
-    this.observer.observe(document.body, { childList: true, subtree: true });
-  }
-
-
-
 
   monitorCamera() {
     setInterval(() => {
