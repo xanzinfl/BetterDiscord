@@ -25,7 +25,6 @@ module.exports = class NoWebcamInvert {
   stop() {
     this.resetCameraInversion();
     this.removeInvertCheckbox();
-    this.removeInvertCheckbox2();
     if (this.observer) {
       this.observer.disconnect();
     }
@@ -100,13 +99,6 @@ module.exports = class NoWebcamInvert {
     const checkboxContainer = document.getElementById('invertCheckboxContainer');
     if (checkboxContainer) {
       checkboxContainer.remove();
-    }
-  }
-
-  removeInvertCheckbox2()  {
-  const checkbox2Container = document.getElementById('invertCheckbox2Container');
-    if (checkbox2Container) {
-      checkbox2Container.remove();
     }
   }
 
