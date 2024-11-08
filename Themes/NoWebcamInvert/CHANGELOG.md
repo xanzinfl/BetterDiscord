@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 2.0.0
+- Converted to a simple theme removing issues such as the camera flicker between inverted and univerted, and the checkbox showing up in random places.
+
 ### 1.0.7
 - Removed the checkbox from the camera preview
 The second checkbox was having issue where it would show in other places (eg. Share screen, Invite a friend, Security Actions) it will be readded once i can fix it.

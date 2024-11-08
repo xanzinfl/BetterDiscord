@@ -1,0 +1,14 @@
+/**
+ * @name NoWebcamInvert
+ * @author xanzinfl
+ * @authorId 888591350986047508
+ * @version 2.0.0
+ * @description Allows you to toggle the local invert on your camera feed
+ * @invite svSmDEvZQw
+ * @source https://github.com/xanzinfl/BetterDiscord
+ */
+
+div[class*="mirror"] video {
+    transform: scaleX(-1);
+  }
+  
