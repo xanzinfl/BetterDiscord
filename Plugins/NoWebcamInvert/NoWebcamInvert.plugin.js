@@ -2,11 +2,10 @@
  * @name NoWebcamInvert
  * @author xanzinfl
  * @authorId 888591350986047508
- * @version 1.0.7
+ * @version 1.0.8
  * @description Allows you to toggle the local invert on your camera feed
  * @invite svSmDEvZQw
  * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert
- * @updateUrl https://raw.githubusercontent.com/xanzinfl/BetterDiscord/main/Plugins/NoWebcamInvert/NoWebcamInvert.plugin.js
  */
 
 module.exports = class NoWebcamInvert {
@@ -16,7 +15,6 @@ module.exports = class NoWebcamInvert {
   }
 
   start() {
-    console.log('Plugin started');
     this.addInvertCheckbox();
     this.applyInversionToMyCamera();
     this.monitorCamera();
@@ -32,19 +30,14 @@ module.exports = class NoWebcamInvert {
 
   toggleCameraInversion() {
     this.isInverted = !this.isInverted;
-    console.log('Toggling inversion:', !this.isInverted);
-
-
     this.applyInversionToMyCamera();
   }
 
   applyInversionToMyCamera() {
     const myCamera = document.querySelector('.mirror_a5989d video');
     if (myCamera) {
-
       myCamera.style.transform = !this.isInverted ? 'scaleX(-1)' : '';
     } else {
-      console.log('No camera with mirror class found.');
     }
   }
 
@@ -53,7 +46,6 @@ module.exports = class NoWebcamInvert {
       const cameraSelectionContainer = document.querySelector('.groupLabel_d90b3d');
 
       if (cameraSelectionContainer) {
-
         if (!document.getElementById('invertCheckbox')) {
           const invertCheckboxContainer = document.createElement('div');
           invertCheckboxContainer.style.padding = '5px';
@@ -71,28 +63,22 @@ module.exports = class NoWebcamInvert {
 
           invertCheckboxContainer.appendChild(invertCheckbox);
           invertCheckboxContainer.appendChild(label);
-
-
           cameraSelectionContainer.appendChild(invertCheckboxContainer);
         }
       }
     };
 
-
     addCheckbox();
-
-
     this.observer = new MutationObserver(() => addCheckbox());
     this.observer.observe(document.body, { childList: true, subtree: true });
   }
 
   monitorCamera() {
     setInterval(() => {
-
       if (!this.isInverted) {
         this.applyInversionToMyCamera();
       }
-    }, 500); // Reapply every 0.5 seconds to ensure the inversion stays
+    }, 500);
   }
 
   removeInvertCheckbox() {
