@@ -1,7 +1,10 @@
 # [BetterDiscord](https://github.com/BetterDiscord/BetterDiscord)
 
 # Plugins
-[NoWebcamInvert](https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoWebcamInvert/NoWebcamInvert.plugin.js)
+[NoSpotifyPause](https://github.com/xanzinfl/BetterDiscord/tree/main/Plugins/NoSpotifyPause)
+
+# Themes
+[NoWebcamInvert](https://github.com/xanzinfl/BetterDiscord/tree/main/Themes/NoWebcamInvert)
 
 #
 Copyright© 2024 xanzinfl
