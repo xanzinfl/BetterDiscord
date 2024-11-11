@@ -7,7 +7,6 @@
  * @invite svSmDEvZQw
  * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/NoSpotifyPause
  * @website https://github.com/xanzinfl
- * @updateurl https://raw.githubusercontent.com/xanzinfl/BetterDiscord/main/Plugins/NoSpotifyPause/NoSpotifyPause.plugin.js
  */
 const config = {
     main: "index.js",
