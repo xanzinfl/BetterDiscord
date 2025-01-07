@@ -1,11 +1,11 @@
 # [BetterDiscord](https://github.com/BetterDiscord/BetterDiscord)
 
 # Plugins
-[NoSpotifyPause](https://github.com/xanzinfl/BetterDiscord/tree/main/Plugins/NoSpotifyPause)
+[SpotifyPauseBlocker](https://github.com/xanzinfl/BetterDiscord/tree/main/Plugins/SpotifyPauseBlocker)
 
 # Themes
 [NoWebcamInvert](https://github.com/xanzinfl/BetterDiscord/tree/main/Themes/NoWebcamInvert)
 
 #
-Copyright© 2024 xanzinfl
+Copyright© 2025 xanzinfl
 
