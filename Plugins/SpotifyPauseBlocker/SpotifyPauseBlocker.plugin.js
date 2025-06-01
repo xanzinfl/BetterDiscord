@@ -3,7 +3,7 @@
  * @description Prevents Discord from pausing Spotify.
  * @author xanzinfl
  * @authorId 888591350986047508
- * @version 1.0.3
+ * @version 1.0.4
  * @invite svSmDEvZQw
  * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/SpotifyPauseBlocker
  * @website https://github.com/xanzinfl
@@ -14,7 +14,7 @@ const config = {
     author: "xanzinfl",
     authorId: "888591350986047508",
     authorLink: "https://github.com/xanzinfl",
-    version: "1.0.3",
+    version: "1.0.4",
     description: "Prevents Discord from pausing Spotify.",
     github: "https://github.com/xanzinfl/BetterDiscord/",
     github_raw: "https://raw.githubusercontent.com/xanzinfl/BetterDiscord/main/Plugins/SpotifyPauseBlocker/SpotifyPauseBlocker.plugin.js",
@@ -67,12 +67,13 @@ module.exports = class SpotifyPauseBlocker {
             };
             xhrProto.send = function (...args) {
                 if (typeof this._url === "string" && this._url.includes("/v1/me/player/pause")) {
-                    this.readyState = 4;
-                    this.status = 200;
-                    this.responseText = "";
-                    this.response = "";
-                    this.onload && this.onload();
-                    this.onreadystatechange && this.onreadystatechange();
+                    Object.defineProperty(this, "readyState", { value: 4, configurable: true });
+                    Object.defineProperty(this, "responseText", { value: "", configurable: true });
+                    Object.defineProperty(this, "response", { value: "", configurable: true });
+                    Object.defineProperty(this, "status", { value: 200, configurable: true });
+
+                    this.onload?.();
+                    this.onreadystatechange?.();
                     this.dispatchEvent(new Event("load"));
                     this.dispatchEvent(new Event("readystatechange"));
                 } else {
