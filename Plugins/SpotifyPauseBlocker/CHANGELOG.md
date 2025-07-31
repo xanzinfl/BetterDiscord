@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 1.0.4
+### 1.0.5
 - Fixed the playback paused banner not hiding
 
 ### 1.0.3 

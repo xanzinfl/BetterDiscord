@@ -3,7 +3,7 @@
  * @description Prevents Discord from pausing Spotify.
  * @author xanzinfl
  * @authorId 888591350986047508
- * @version 1.0.4
+ * @version 1.0.5
  * @invite svSmDEvZQw
  * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/SpotifyPauseBlocker
  * @website https://github.com/xanzinfl
