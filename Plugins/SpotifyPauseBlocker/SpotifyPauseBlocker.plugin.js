@@ -8,17 +8,6 @@
  * @source https://github.com/xanzinfl/BetterDiscord/blob/main/Plugins/SpotifyPauseBlocker
  * @website https://github.com/xanzinfl
  */
-const config = {
-    main: "index.js",
-    name: "SpotifyPauseBlocker",
-    author: "xanzinfl",
-    authorId: "888591350986047508",
-    authorLink: "https://github.com/xanzinfl",
-    version: "1.0.4",
-    description: "Prevents Discord from pausing Spotify.",
-    github: "https://github.com/xanzinfl/BetterDiscord/",
-    github_raw: "https://raw.githubusercontent.com/xanzinfl/BetterDiscord/main/Plugins/SpotifyPauseBlocker/SpotifyPauseBlocker.plugin.js",
-};
 
 module.exports = class SpotifyPauseBlocker {
     constructor() {
@@ -83,6 +72,21 @@ module.exports = class SpotifyPauseBlocker {
         }
     }
 
+    removeBanner() {
+        const remove = () => {
+            const banner = document.querySelector('div.notice__6e2b9.colorDanger__6e2b9');
+            if (banner && banner.textContent.includes("Spotify playback paused")) {
+                banner.remove();
+            }
+        };
+        remove();
+        this.bannerObserver = new MutationObserver(remove);
+        this.bannerObserver.observe(document.body, {
+            childList: true,
+            subtree: true,
+        });
+    }
+
     restoreFetch() {
         if (this.originalFetch) {
             window.fetch = this.originalFetch;
@@ -93,6 +97,13 @@ module.exports = class SpotifyPauseBlocker {
         if (this.originalXHROpen && this.originalXHRSend) {
             XMLHttpRequest.prototype.open = this.originalXHROpen;
             XMLHttpRequest.prototype.send = this.originalXHRSend;
+        }
+    }
+
+    stopBannerObserver() {
+        if (this.bannerObserver) {
+            this.bannerObserver.disconnect();
+            this.bannerObserver = null;
         }
     }
 };

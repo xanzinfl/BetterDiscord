@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 1.0.4
+- Fixed the playback paused banner not hiding
+
 ### 1.0.3 
 - Removed ZeresPluginLibrary as it is now deprecated
 
